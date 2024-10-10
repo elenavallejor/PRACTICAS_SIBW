@@ -1,0 +1,660 @@
+
+body {
+    margin:  0px; /* Se ajusta a la pantalla */
+    font-size: 120%;
+    font-family: "Montserrat", sans-serif;
+    background-color: #ffe9af;
+  }
+  
+  
+  .titulo {
+    font-size: 150%;
+    font: Helvetica;
+    font-weight: bold;
+    color: #294C4C;
+    text-shadow:  1px 1px 2px rgba(0, 0, 0, 0.432);
+  }
+  
+  header {
+    display: flex; 
+  
+    padding: 5px;
+    height: 80%;
+  
+    border-bottom: solid #275657;
+  
+    background: url("https://i.ibb.co/LvZNTb5/banda-azul.png") #ffe9af; /* Ponemos de fondo en el header la imagen asociada al enlace */
+    background-repeat: inherit;
+    background-size: cover;
+  }
+  
+  /* Logo de la pagina */
+  header img { 
+    width: 10em;
+  }
+  
+  .lateral {
+    padding: 1%;
+  }
+  
+  .menus {
+    display: grid;
+    grid-template-columns: 150px 150px 150px 350px 150px;
+    text-align: center;
+    
+    font: Helvetica;
+    font-weight: bold;
+    list-style-type: none; /* Elimina los puntos de las listas */
+  
+    padding: 1%;
+  }
+  
+  .menus a {
+    text-decoration: none;
+    color: #1d4b4d;
+    text-shadow:  1px 1px 2px rgba(255, 255, 255, 0.432);
+  }
+  
+  content {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    background-color: #ffe9af;
+    position: relative;
+    text-decoration: none;
+    padding-right: 35px;
+  }
+  
+  .fixed_sidebar {
+    background-color: #1d4b4d;
+    padding-top: 9%;
+  }
+  
+  .fixed_sidebar a {
+    color:antiquewhite;
+    font-size: 100%;
+    text-decoration:none;
+  
+    padding: 10%;
+  }
+  
+  .fixed_sidebar li {
+    color:antiquewhite;
+  }
+  
+  .fixed_sidebar p {
+    text-decoration: underline;
+    color:antiquewhite;
+    padding-left: 10%;
+  
+  }
+  
+  .actividades {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%; /* Grid de 3 columnas */
+    align-items: center;
+    gap: 15px;
+    
+    padding: 1%;
+  }
+  
+  .actividades img {
+    height: 250px; 
+    /*! max-width: 100px; */
+  
+    border-radius: 15px; 
+    border-color:#294C4C;
+    border-style: solid;
+  
+    transition: all 0.3s ease-in-out; /* Transicion para el hover */
+    width: 480px;
+  }
+
+  /* Permite que al poner el cursor sobre la imagen se establezca el brillo al 70% */
+  .actividades img:hover {
+    filter: brightness(70%);
+  }
+  
+  .actividad {
+    display: grid;
+    grid-template-rows: 95% 5%;
+  }
+  
+  .titulo_act {
+    font-size: 2vh;
+    font: Helvetica;
+    font-weight: bold;
+    color: #1d4b4d;
+    text-decoration:none;
+  
+    padding: 0 40%;
+    
+    text-shadow:  1px 1px 2px rgba(0, 0, 0, 0.432);;
+  }
+  
+  
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1A3F42;
+    color: antiquewhite; 
+  
+  }
+  
+  @media (max-width: 1000px) { /* DISPOSITIVOS MOVILES */
+    .actividades {
+      display: grid;
+      grid-template-columns: 50% 50%;
+    }
+
+    .actividad img {
+      width: 370px;
+    }
+  }
+  
+  /* actividad.html */
+  
+  .descripcion_actividad {
+    text-align: justify ;
+    color: #1d4647;
+    padding-left: 2%;
+    font-size: 120%;
+  }
+  
+  
+  .img_articulo {
+    border-radius: 0px; 
+    border-color:#4e787a;
+    border-style: solid;
+    
+    float:left;
+    margin-left: 5%;
+  }
+  
+  .img_articulo img {
+    width: 300px;
+    height: 173px;  
+  }
+  
+  .img_articulo p {
+    text-align: center;
+  }
+  
+  .redes_sociales {
+    margin-left: 25%;
+    margin-right: auto;
+    margin-top: 300px;
+  }
+  
+  .redes_sociales img {
+    width: 60px;
+    padding: 5%;
+  }
+  
+  /* PRACTICA 2 */
+
+  .hidden_sidebar {
+    background-color: #1d4b4d;
+    color:antiquewhite;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 65.5%;
+    float:right;
+    overflow-x: hidden;
+    padding-top: 20px;
+    text-shadow:  2px 2px 4px rgba(0, 0, 0, 0.644);;
+  }
+
+  .contenido_sidebar {
+    padding-left: 5%;
+    padding-right: 7%;
+  }
+
+  main {
+    color:#1A3F42;
+    transition: margin-right 0.3s;
+    padding: 16px;
+    min-height: 65vh;
+    min-width: 65vh;
+  }
+
+  .comentar {
+    background-color: #ffe9af; 
+    color: black; 
+    border: 2px solid #4e787a;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+  }
+
+  .comentar:hover {
+    background-color: #4e787a;
+    color: antiquewhite;
+  }
+
+  .boton_cerrar {
+    background: none;
+	  border: none;
+	  text-decoration: none;
+   
+    font-size: 25px;
+    color: #585858;
+    display: block;
+    transition: 0.3s;
+    padding-bottom: 5%;
+
+  }
+
+  .boton_cerrar:hover {
+    color: #f1f1f1;
+  }
+
+  .comment_box {
+    border-radius: 40px;
+    background-color:hsl(181, 27%, 31%);
+    right: 100px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+    font-weight: 600;
+    margin: 20px 0;
+  }
+
+  .casilla_email {
+    padding-bottom: 20px;
+  }
+
+  .borrador, .enviar {
+    background-color: antiquewhite; 
+    color: black; 
+    border: 2px solid #4e787a;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    
+  
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    
+  }
+
+  .borrador:hover, .enviar:hover {
+    background-color: #4e787a;
+    color: antiquewhite;
+  }
+
+  .input_comentario {
+    height:120px;
+    width:500px;
+  }
+
+  .input_email, .input_nombre {
+    width:500px;
+  }
+
+  .figure img {
+    width: 1600px;
+    height: 900px;
+  }
+
+  .inicio_sesion {
+    width: 450px;
+    background:#1a3f42b0;
+		border: 2px solid rgba(255, 255, 255, .2);
+    box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.22);
+    backdrop-filter: blur(20px);
+
+    color: white;
+		border-radius: 10px;
+		font-weight: 600;
+    padding: 30px 40px;
+  }
+
+  .inicio_sesion h1 {
+    font-size: 36px;
+    text-align: center;;
+  }
+
+  .inicio_sesion .input_user {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255,255,255,.2);
+    border-radius: 40px;
+  }
+
+  .input_box {
+    padding: 20px 45px 20px 20px;
+  }
+  
+  .inicio_sesion .input_user::placeholder {
+    color: white;
+
+  }
+  .box_icon {
+    color: white;
+  }
+
+  .inicio_sesion .boton_iniciosesion {
+    width: 100%;
+    height: 45px;
+    background-color: white;
+    border:none;
+    border-radius: 40px;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    margin: 20px 0;
+  }
+
+  .inicio_sesion .registrarse {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0px 15px;
+  }
+
+  .inicio_sesion p a {
+    color:white;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .inicio_sesion p a:hover {
+    text-decoration: underline;
+  }
+
+
+
+  .paneldecontrol a {
+    text-decoration: none;
+    font-size: 22px;
+    color: inherit;
+    margin: 10px;
+  }
+
+  .paneldecontrol ul {
+    background-color: rgba(255, 255, 255, 0.384);
+    border: 2px solid #4e787a;
+    border-radius: 40px;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+  }
+
+  .paneldecontrol input {
+    text-align: center;
+    border-radius: 1.8em;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .paneldecontrol .form_usuario {
+    font-size: 17px;
+    padding: 20px;
+    padding-top: 55px;
+    padding-bottom: 55px;
+    background-color: rgba(255, 255, 255, 0.384);
+    border: 2px solid #4e787a;
+    border-radius: 40px;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    
+  }
+
+  .paneldecontrol .form_usuario input {
+    background-color:#1A3F42;
+    color:white;
+  }
+
+
+  .caja_comentarios {
+    background-color: rgba(255, 255, 255, 0.384);
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    border: 2px solid #4e787a;
+    border-radius: 40px;
+    margin-bottom: 20px;
+
+  }
+
+  .caja_comentarios a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .caja_comentarios a:hover {
+    text-decoration: underline;
+  }
+
+  .editar_comentario form {
+    background-color: rgba(255, 255, 255, 0.384);
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    border: 2px solid #4e787a;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    font-size: 25px;
+  }
+
+  .editar_comentario textarea {
+    width: 800px;
+    height: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    border: 2px solid #4e787a;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .editar_comentario input {
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+
+  .pcontrol_actividades a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .pcontrol_actividades a:hover {
+    text-decoration: underline;
+  }
+
+  .pcontrol_actividades .actividades {
+    background-color: rgba(255, 255, 255, 0.384);
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    border: 2px solid #4e787a;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    padding-right: 100px;
+  }
+
+  .pcontrol_crearAct form {
+    background-color: rgba(255, 255, 255, 0.384);
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    border: 2px solid #4e787a;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    padding-right: 100px;
+  }
+
+  .pcontrol_crearAct textarea {
+    width: 900px;
+    height: 350px;
+    margin-bottom: 20px;
+  }
+
+
+  .pcontrol_crearAct input {
+    width: 300px;
+    height: 35px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .pcontrol_editarActividad form {
+    background-color: rgba(255, 255, 255, 0.384);
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    border: 2px solid #4e787a;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    padding-right: 100px;
+  }
+
+  .pcontrol_editarActividad textarea {
+    width: 900px;
+    height: 350px;
+    margin-bottom: 20px;
+  }
+  
+  
+  .pcontrol_editarActividad input {
+    width: 300px;
+    height: 35px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .pcontrol_editarActividad a {
+    text-decoration: none;
+    color: inherit;
+  }
+    
+  .pcontrol_editarActividad a:hover {
+    text-decoration: underline;
+  }
+    
+  .pcontrol_editarActividad .galeria {
+    margin-right: 10px;
+    margin-bottom: 400px;
+  }
+
+  .pcontrol_permisos {
+    background-color: rgba(255, 255, 255, 0.384);
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    border: 2px solid #4e787a;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    padding-right: 100px;
+  }
+
+  .pcontrol_permisos input {
+    width: 200px;
+    color:#585858;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+
+  .pcontrol_permisos select {
+    width: 200px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .pcontrol_buscar {
+    background-color: rgba(255, 255, 255, 0.384);
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    border: 2px solid #4e787a;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    padding-right: 100px;
+  }
+
+  .pcontrol_buscar a {
+    text-decoration: none;
+    color: inherit;
+  }
+    
+  .pcontrol_buscar a:hover {
+    text-decoration: underline;
+  }
+
+  .pcontrol_buscar input {
+    width: 200px;
+    color:#585858;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .editar_actividad a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .editar_actividad a:hover {
+    text-decoration: underline;
+  }
+
+ .hashtag {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .hashtag:hover {
+    text-decoration: underline;
+  }
+
+  #mensaje {
+    display: none;
+  }
+
+  .sinpublicar  {
+    height: 250px; 
+    /*! max-width: 100px; */
+    filter: brightness(35%);
+    border-radius: 15px; 
+    border-color:#294C4C;
+    border-style: solid;
+  
+    transition: all 0.3s ease-in-out; /* Transicion para el hover */
+    width: 480px;
+  }
+
+  input#palabrasBuscadas {
+    width: 900px;
+    height: 30px;
+  }
+  

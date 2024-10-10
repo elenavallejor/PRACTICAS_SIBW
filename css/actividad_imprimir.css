@@ -1,0 +1,100 @@
+
+body {
+    margin:  0px; /* Se ajusta a la pantalla */
+    font-size: 110%;
+    font-family:'Times New Roman', Times, serif;
+  }
+  
+  
+  .titulo {
+    font-size: 190%;
+    font: Helvetica;
+    font-weight: bold;
+    color: black;
+    padding-left: 10%;
+    padding-top: 1%;
+  }
+  
+  header {
+    padding: 5px;
+    padding-bottom: 2.5%;
+    height: 80%;
+    border-bottom: solid #000000;
+  }
+  
+  /* Logo de la pagina */
+  header img { 
+    width: 10em;
+    float: right;
+  }
+
+  .menus {
+    display: none;    
+  }
+    
+  .fixed_sidebar li, .destinos {
+    display: none;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: solid black;
+  }
+    
+  /* actividad.html */
+  
+  .descripcion_actividad {
+    text-align: justify ;
+    color: black;
+    padding-left: 2%;
+    font-size: 120%;
+  }
+  
+  
+  .img_articulo {
+    border-radius: 0px; 
+    border-color: black;
+    border-style: solid;
+    
+    float: right;
+    margin-left: 5%;
+  }
+  
+  .img_articulo img {
+    width: auto;  
+  }
+  
+  .img_articulo p {
+    text-align: center;
+  }
+  
+  .redes_sociales {
+    margin-left: 25%;
+    margin-right: auto;
+  }
+  
+  .redes_sociales img {
+    display: none;
+  }
+  
+  .comentario{
+    display: hidden;
+  } 
+
+  .hidden_sidebar {
+    display: hidden;
+  }
+  
+  .contenido_sidebar, .boton_cerrar {
+    display: none;
+  }
+
+  .comentar {
+    display: none;
+  }
+
+  .footer {
+    display:none;
+  }
