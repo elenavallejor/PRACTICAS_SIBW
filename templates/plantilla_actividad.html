@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        </head>{% block head %}
+            <title> ALTURAS </title>  
+            <link href="css/principal.css" rel="stylesheet" type="text/css">
+            <link rel="icon" href="img/favicon.ico">
+            <script src="js/script.js" defer=""></script>
+            <script src="https://kit.fontawesome.com/88d5671ce3.js" crossorigin="anonymous"></script> 
+        {% endblock %}   
+    </head>
+
+    <body>
+        <header>
+            <div class="logo">
+                <img src="img/logo.png">
+            </div>
+            
+            <div class="lateral">
+                <p class="titulo">ALTURAS: ACTIVIDADES DE MONTAÑISMO</p>
+                
+                <ul class="menus">
+                    <a href="principal.php"> <li class="opciones"> Inicio </li> </a>
+                    <a href="buscarActividad.php"> <li class="opciones"> <i class="fa-solid fa-magnifying-glass"></i> Buscar </li> </a>
+                    <a target="_blank" href="https://www.facebook.com/"> <li class="opciones"> Conocenos </li> </a>
+
+                    {% if usuario is defined %}
+                        <a href="/pcontrol.php"> <li>Eres {{usuario}}: Tu panel</li></a>
+                        <a href="/logout.php"> <li>Cerrar sesión</li></a>
+                    {% else %}
+                        <a href="/login.php"><li>Login</li></a>
+                    {% endif %}
+            </div>        
+        </header>
+        
+
+        <content>
+            <nav class="fixed_sidebar">
+                <p class="destinos" id="destinos">DESTINOS:</br> </p>
+                <ul>
+                    <li> <a target="_blank" href="https://sierranevada.es/es/"> Sierra Tejeda </a> </li> 
+                    <li> <a target="_blank" href="https://sierranevada.es/es/"> Sierra Nevada </a> </li>
+                    <li> <a target="_blank" href="https://sierranevada.es/es/"> Lucena </a> </li>
+                    <li> <a target="_blank" href="https://sierranevada.es/es/"> Sierra de Huétor </a> </li>
+                    <li> <a target="_blank" href="https://sierranevada.es/es/"> Arana </a> </li>
+                    <li> <a target="_blank" href="https://sierranevada.es/es/"> Sierra Baza </a> </li>
+                    <li> <a target="_blank" href="https://sierranevada.es/es/"> Alfacar </a> </li>
+                    <li> <a target="_blank" href="https://sierranevada.es/es/"> Escalate </a> </li>
+                    <li> <a target="_blank" href="https://sierranevada.es/es/"> Andanillos </a> </li>
+                    <li> <a target="_blank" href="https://sierranevada.es/es/"> Sierra de Loja </a> </li>
+                    <li> <a target="_blank" href="https://sierranevada.es/es/"> Almijara </a> </li>
+                </ul>
+            </nav>
+
+            <main id="main">
+                <div class="descripcion_actividad">
+                    {% block descripcion %}
+        
+                    {% endblock %} 
+                    </br>           
+                    <div class="redes_sociales">
+                        <a href="https://twitter.com/"><img src="img/twitter.png"></a>
+                        <a href="https://www.facebook.com/?locale=es_ES"><img src="img/facebook.png"></a>
+                        {% block imprimir %}
+
+                        {% endblock %}
+                    </div>
+
+                    <p> ¿Tienes algo que decirnos?</p>
+                    <button id="comentar" class="comentar">¡Comenta!</button>  
+                </div>
+               
+            </main>
+    
+            <div class="hidden_sidebar" id="hidden_sidebar">
+                <div class="contenido_sidebar">
+                    <button id="cerrar" class="boton_cerrar"> x </button>
+                    {% if usuario is defined %}
+                        <form id="comment_box" action="/actividad.php?actividad={{actividad.id}} " class="comment_box" method="post">
+                            <div class="casilla_comentario">
+                                <label for="comentario" id="lcomentario"> <br> Comentario: </label> <br>
+                                <textarea id="comentario" name="comentario" class="input_comentario" required></textarea>
+                            </div>
+                            <button type="reset" id="borrador" class="borrador"> Limpiar </button>
+                            <input id="enviar" class="enviar" type="submit" value="Enviar comentario" /> 
+                        </form>
+                    {% endif %}
+                    <h1>Comentarios</h1>
+                    <div id="comments">
+                        {% block comentarios %}
+        
+                        {% endblock %} 
+                    </div>    
+                </div>
+                
+            </div>
+        </content>
+
+        <footer class="footer">
+            <div> Elena Vallejo Ruiz © 2024. Todos los derechos reservados </div>
+            <div> CONTÁCTANOS</div>
+            <div> Telefono: 651XXXXX</div>
+            <div> Correo: elenavallejor@correo.ugr.es </div>
+        </footer> 
+    </body> 
+</html>

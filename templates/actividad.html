@@ -1,0 +1,55 @@
+{% extends "plantilla_actividad.html" %}
+    {% block descripcion %}
+        {% if rol >= 3 %}
+            <div class="editar_actividad">
+                <h1> Gestión del sitio: </h1>
+                <a href="/pcontrol_editarActividad.php?actividad={{actividad.id}}"> <i class="fa-solid fa-pen-to-square"></i> EDITAR </a> <br>
+                <a href="/pcontrol_borrarActividad.php?actividad={{actividad.id}}"> <i class="fa-solid fa-trash"></i> BORRAR </a> <br>
+                {% if actividad.publicado == 0 %}
+                    <a href="/pcontrol_publicarActividad.php?actividad={{actividad.id}}"> <i class="fa-solid fa-eye"></i> PUBLICAR </a>
+                {% else %}
+                    <a href="/pcontrol_archivarActividad.php?actividad={{actividad.id}}"> <i class="fa-solid fa-eye-slash"></i> </i> ARCHIVAR </a>
+                {% endif %}
+            </div>
+        {% endif %}
+        <h1> {{ actividad.nombre }} </h1>
+        <p> Fecha de la actividad: {{actividad.fecha}} </p>
+        
+        <div class="hastags">
+            <p>Hashtags: 
+                {% for hashtag in hashtagsSeparados  %}
+                    <a class="hashtag" href="/buscarHashtag.php?hashtag={{hashtag}}"> #{{hashtag}},</a> 
+                {% endfor %}
+            </p>
+        </div>
+        
+        <p> Precio: {{actividad.precio}} €</p>
+        <p> {{ actividad.descripcion | nl2br }} </p>
+        
+        <p> </br> Galería de imagenes </p>
+        <div class="galeria">
+            {% for imagen in imagenes_separadas %} 
+                {% if imagen != ' '%}
+                    <figure class="img_articulo">
+                        <img src="img/{{imagen}}">
+                        <p> {{piedefoto[loop.index0]}} </p>
+                    </figure>
+                {% endif %}
+            {% endfor %}   
+        </div>
+        
+    {% endblock %}      
+    
+    {% block imprimir %}
+        <a href="actividad_imprimir.php?actividad={{actividad.id}}"> <img src="img/imprimir.png"> </a>
+    {% endblock %} 
+
+    {% block comentarios %}
+        {% for comentario in comentarios %} 
+            <div class="comentario">
+                <p> <b> {{comentario.nombre}} </b> ({{comentario.fecha}}) </p> 
+                <p> {{comentario.comentario}} </p>
+            </div>
+            <hr>
+        {% endfor %}
+    {% endblock %} 

@@ -1,0 +1,53 @@
+{% extends "pcontrol.html" %}
+    {% block main %}
+        <div class="pcontrol_editarActividad">
+            <h1>GESTIÓN DE ACTIVIDADES - MODIFICAR DATOS DE ACTIVIDAD</h1>
+            <h3>Estás editando la actividad {{ actividad.nombre }}</h3>
+            <hr>
+            <form id="editarActividad" action="/pcontrol_editarActividad.php?actividad={{ actividad.id }}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="idActividadEditar" value="{{ actividad.id }}">
+
+                <label for="titulo">Título</label><br>
+                <input type="text" name="tituloNuevo" value="{{ actividad.nombre }}" placeholder="Nuevo nombre de la actividad"><br>
+
+                <label for="precio">Precio</label><br>
+                <input type="text" name="precioNuevo" value="{{ actividad.precio }}" placeholder="Nuevo precio de la actividad" required><br>
+
+                <label for="fecha">Fecha</label><br>
+                <input type="text" name="fechaNueva" value="{{ actividad.fecha }}" placeholder="Nueva fecha de la actividad" required><br>
+
+                <label for="hastags">Hashtags</label><br>
+                <input type="text" name="hashtagsNuevo" value="{{ actividad.hashtag }} "placeholder="Nuevos hastags de la actividad" required><br>
+
+                <label for="editor">Descripción de la actividad</label><br>
+                <textarea id="editor" name="descripcionNueva" form="editarActividad"> {{ actividad.descripcion }} </textarea> <br>
+                
+                <p>Galeria actual:</p>
+                <div class="galeria">
+                    {% for imagen in imagenes_separadas %} 
+                        {% if imagen != ''%}
+                            <figure class="img_articulo">
+                                <img src="img/{{imagen}}">
+                                <p> {{piedefoto[loop.index0]}} </p>
+                            </figure>
+                            
+                        {% endif %}
+                    {% endfor %}
+                </div>
+        
+                <a href="pcontrol_vaciarGaleria.php?actividad={{actividad.id}}"> <i class="fa-solid fa-trash"></i> Vaciar galeria</a> <br> <br>
+                
+                <label for="galeria">Imagenes de la galeria</label><br>
+                <input type="file" name="galeria[]" multiple><br>
+
+                <label for="piedefoto">Pie de foto de imagenes la galeria</label><br>
+                <input type="text" name="piedefotoNuevo" placeholder="Nuevos pie de foto de la galeria de la actividad"><br> 
+
+                <input type="hidden" name="portadaEditar" value="{{ actividad.imagenes }}">
+                <label for="imagen_portada">Imagen de portada</label><br>
+                <input type="file" name="imagen_portada" /> <br>
+
+                <input type="submit" value="Modificar actividad"/>
+            </form>
+        </div>   
+    {% endblock %}

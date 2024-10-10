@@ -1,0 +1,13 @@
+{% extends "pcontrol.html" %}
+    {% block main %}
+        <div class="editar_comentario">
+            <h1> <i class="fa-solid fa-comment"></i> GESTIÓN DE COMENTARIOS - EDITAR COMENTARIO</h1>
+            <h3>Estás editando el comentario de  {{ comentario.nombre }} en la actividad {{ actividades[comentario.id].nombre }}</h3>
+            <hr>
+            <form id="editorComentario" action="pcontrol_editarComentario.php?comentario={{comentario.id}}" method="post" enctype="multipart/form-data">
+                <label for="editor">Contenido del comentario</label><br><br>
+                <textarea id="editor" name="comentarioNuevo" form="editorComentario"> {{ comentario.comentario }} </textarea><br>
+                <input type="submit" value="Publicar comentario">
+            </form>   
+        </div>   
+    {% endblock %}

@@ -1,0 +1,19 @@
+{% extends "pcontrol.html" %}
+    {% block main %}
+            <h1> <i class="fa-solid fa-mountain"></i> BUSQUEDA DE ACTIVIDADES POR HASHTAG</h1>
+            <hr>
+            <h1> Hashtag: {{ palabraBuscada }} </h1>
+            <div class =pcontrol_buscar>
+                <div class="actividades">
+                    {% for act in actividadesBuscadas %} 
+                        {% if (rol < 3) and (act.publicado == '1') or (rol >= 3) %}
+                            <figure class="actividad">
+                                <a  href="actividad.php?actividad={{act.id}}"> <img src="img/{{act.imagen_portada}}"> </a>
+                                <a class="titulo_act" href="actividad.php?actividad={{actid}}"> {{ act.nombre }} </a> 
+                            </figure>
+                        {% endif %}
+                    {% endfor %} 
+                </div>
+            </div>
+        
+    {% endblock %}

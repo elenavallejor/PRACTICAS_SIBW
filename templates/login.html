@@ -1,0 +1,32 @@
+{% extends "plantilla_principal.html" %}
+    {%block css%} <link href="css/login.css" rel="stylesheet" type="text/css"> {%endblock%}
+    {% block main %}
+        <div class="inicio_sesion">
+            <form action="login.php" method="POST">
+                <h1>Login</h1>
+                
+                <div class="input_box">
+                    <i class="fa-solid fa-user"></i>
+                    <label for="Usuario">Usuario:</label><br>
+                    <input type="text" name="user" placeholder="Tu nombre de usuario..." class="input_user" required/><br> 
+                </div>
+                
+                <div class="input_box">
+                    <i class="fa-solid fa-lock"></i>
+                    <label for="Contraseña">Contraseña:</label><br>
+                    <input type="password" name="constraseña" placeholder="Tu contraseña..." class="input_user" required/><br>   
+                </div>
+               
+                <input type="submit" value="Log in" class="boton_iniciosesion" />
+                
+                {% if error == 'True' %}
+                    <p class="error"> Nombre de usuario o contraseña incorrectos. </p>
+                {% endif %}
+
+                <div class="registrarse">
+                    <p> ¿No tienes cuenta? <a href="registrarse.php"> ¡Registrate! </a> </p>
+                </div>
+                 
+            </form>
+        </div>
+    {% endblock %}

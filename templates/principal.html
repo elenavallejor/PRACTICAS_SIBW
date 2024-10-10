@@ -1,0 +1,13 @@
+{% extends "plantilla_principal.html" %}
+        {% block main %}
+        <div class="actividades">
+                         {% for actividad in actividades %} 
+                              {% if actividad.publicado == 1 %}
+                                   <figure class="actividad">
+                                        <a  href="actividad.php?actividad={{actividad.id}}"> <img src="img/{{actividad.imagen_portada}}"> </a>
+                                        <a class="titulo_act" href="actividad.php?actividad={{actividad.id}}"> {{ actividad.nombre }} </a> 
+                                   </figure>
+                              {% endif %}
+                         {% endfor %} 
+          </div>              
+        {% endblock %}

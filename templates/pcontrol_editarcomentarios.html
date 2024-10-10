@@ -1,0 +1,20 @@
+{% extends "pcontrol.html" %}
+    {% block main %}
+        <h1> <i class="fa-solid fa-comment"></i> GESTIÓN DE COMENTARIOS</h1>
+        <hr>
+        {% for comentario in comentariosDB %}
+            <div class="caja_comentarios">
+                <h3> Comentado en la actividad: {{ actividades[loop.index0].nombre }}</h3>
+                <div class="comentarios">
+                    <h3> {{ comentario.nombre }} </h3>
+                    <h4> {{ comentario.fecha }} </h4>
+                    <p> {{ comentario.comentario }} </p>
+                </div>
+                <hr>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <a href="/pcontrol_editarComentario.php?comentario={{comentario.id}}"> EDITAR COMENTARIO </a>
+                <i class="fa-solid fa-trash"></i>
+                <a href="/pcontrol_borrarComentario.php?comentario={{comentario.id}}"> BORRAR COMENTARIO </a>
+            </div>
+        {% endfor %}
+    {% endblock %}

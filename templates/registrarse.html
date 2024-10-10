@@ -1,0 +1,35 @@
+{% extends "plantilla_principal.html" %}
+    {% block css %} <link href="css/login.css" rel="stylesheet" type="text/css"> {% endblock %}
+    {% block main %}
+        <div class="inicio_sesion">
+            <form action="registrarse.php" method="post">
+                <h1>Registro</h1>
+                
+                <div class="input_box">
+                    <i class="fa-solid fa-user"></i>
+                    <label for="Usuario">Usuario:</label><br>
+                    <input type="text" name="user" placeholder="Tu nombre de usuario..." class="input_user" required/><br> 
+                </div>
+                
+               
+
+                <div class="input_box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <label for="Email">Email:</label><br>
+                    <input type="email" name="email" placeholder="Tu correo..." class="input_user" required/><br> 
+                </div>
+
+                <div class="input_box">
+                    <i class="fa-solid fa-lock"></i>
+                    <label for="Contraseña">Contraseña:</label><br>
+                    <input type="password" name="constraseña" placeholder="Tu contraseña..." class="input_user" required/><br>   
+                </div>
+                
+                {% if error == 'True' %}
+                    <p class="error"> Nombre o correo ya en uso. </p>
+                {% endif %}
+
+                <input type="submit" value="Registrarse" class="boton_registrarse" />             
+            </form>
+        </div>
+    {% endblock %}

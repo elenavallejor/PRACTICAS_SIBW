@@ -1,0 +1,40 @@
+{% extends "pcontrol.html" %}
+    {% block main %}
+        <h1>GESTIÓN DE PERMISOS DE USUARIOS</h1>
+        <hr>
+        <div class="pcontrol_permisos">
+            <h3> Hola, {{ usuario }}. Tus Permisos: <b>Superusuario</b> </h3>
+            <hr>
+
+            {% for user in usuarios %}
+                <div class="usuarios">
+                    {% if user.username != usuario %}
+                        {% if user.rol == 1 %}
+                            <p>  <i class="fa-solid fa-user"></i> <b>{{user.username}}</b>: Usuario registrado </p>
+                        {% elseif user.rol == 2 %}
+                            <p> <i class="fa-solid fa-user"></i>  <b>{{user.username}}</b>: Usuario moderador </p>
+                        {% elseif user.rol == 3 %}
+                            <p>  <i class="fa-solid fa-user"></i> <b>{{user.username}}</b>: Usuario Gestor del sitio </p>
+                        {% else %}
+                            <p>  <i class="fa-solid fa-user"></i> <b>{{user.username}}</b>: Superusuario </p>
+                        {% endif %}
+                        <form action="/pcontrol_permisos.php" method="post">
+                            <input type="hidden" name="usuarioPermisos" value="{{ user.username }}">
+                            <label for="roles">Nivel de permisos:</label>
+                            <select id="roles" name="roles">
+                                <option value="1">1. Usuario registrado</option>
+                                <option value="2">2. Usuario moderador</option>
+                                <option value="3">3. Usuario Gestor del sitio</option>
+                                <option value="4">4. Superusuario</option>
+                            </select>
+                            <input type="submit" value="Modificar permisos" />
+                        </form>
+                    {% else %}
+                        <p> <i class="fa-solid fa-user"></i> <b>{{usuario}}</b> <br> ¡No puedes modificar tus propios permisos! </p>
+                    {% endif %}
+
+                </div>
+            {% endfor %}
+        </div>
+        
+    {% endblock %}

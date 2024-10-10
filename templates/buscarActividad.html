@@ -1,0 +1,19 @@
+{% extends "pcontrol.html" %}
+    {% block script %}
+        <script src="https://kit.fontawesome.com/88d5671ce3.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="js/ajax.js" defer=""></script>
+    {% endblock %}
+    {% block main %}
+        <h1> <i class="fa-solid fa-mountain"></i> BUSQUEDA DE ACTIVIDADES</h1>
+        <hr>
+
+        <div class="pcontrol_buscar">
+            <input type="text" id="palabrasBuscadas" placeholder="¿Qué estás buscando?" autocomplete="off">
+            
+            <div id="actividades" class="actividades">
+                <p id="mensaje"> Cargando... </p>
+                    <!-- Aquí se insertarán los resultados de la búsqueda en vivo -->
+            </div>
+        </div>
+    {% endblock %}

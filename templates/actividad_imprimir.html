@@ -1,0 +1,37 @@
+{%extends "plantilla_actividad.html" %}
+    {% block head %}
+            <title> ALTURAS </title>  
+            <link href="css/actividad_imprimir.css" rel="stylesheet" type="text/css">
+            <link rel="icon" href="img/favicon.ico">
+            <script src="js/script.js" defer=""></script>
+    {% endblock %}   
+
+    {% block descripcion %}
+        <h1> {{ actividad.nombre }} </h1>
+        <p> Fecha de la actividad: {{actividad.fecha}} </p>
+        <p> Precio: {{actividad.precio}} </p>
+        <p> {{ actividad.descripcion | nl2br }} </p>
+        
+        <p> </br> Galería de imagenes </p>
+        {% for imagen in imagenes_separadas %} 
+            <div class="img_articulo">
+                <img src="img/{{imagen}}">
+                <p> {{piedefoto[loop.index0]}} </p>
+            </div>
+        {% endfor %}   
+    {% endblock %}      
+    
+    {% block imprimir %}
+        <a href="actividad_imprimir.php?actividad={{actividad.id}}"><img src="img/imprimir.png"></a>
+    {% endblock %} 
+
+    {% block comentarios %}
+        {% for comentario in comentarios %} 
+        <div class="comentario">
+            <p> <b>{{comentario.nombre}}</b> ({{comentario.fecha}}) </p> 
+            <p> {{comentario.comentario}} </p>
+            </div>
+            <hr>
+        </div>
+        {% endfor %}
+    {% endblock %} 

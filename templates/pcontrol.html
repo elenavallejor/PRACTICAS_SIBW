@@ -1,0 +1,33 @@
+{% extends "plantilla_principal.html" %}
+    {% block main %}
+        <div class="paneldecontrol">
+            <h1>  <i class="fa-solid fa-user"></i> PANEL DE CONTROL</h1> 
+            <hr>
+            <p>Bienvenido a tu panel de control. Has iniciado sesión como <span class="underlined">{{ usuario }}<span>.</p>
+            
+            {% if rol == 1 %}
+                <p> Eres un usuario registrado estandar. </p>
+            {% elseif rol == 2 %}
+                <p> Tienes permisos de Moderador. </p>
+            {% elseif rol == 3 %}
+                <p> Eres un usuario gestor de la página web. </p>
+            {% else %}
+                <p> ¡Eres Superusuario! Tienes acceso a todos los permisos. </p>
+            {% endif %}
+            <hr>
+            
+            <ul>
+                <a href="pcontrol_editarperfil.php"><li>Editar mis datos personales <i class="fa-solid fa-pen-to-square"></i> </li>  </a>
+                
+                {% if rol >= 2 %}
+                    <a href="pcontrol_editarcomentarios.php"><li>Gestión de comentarios <i class="fa-solid fa-comment"></i> </li></a>
+                {% endif %}
+                {% if rol >= 3 %}
+                    <a href="pcontrol_actividades.php"><li>Gestión de actividades <i class="fa-solid fa-mountain"></i> </li></a>
+                {% endif %}
+                {% if rol == 4 %}
+                    <a href="/pcontrol_permisos.php"><li>Gestión de permisos de usuarios <i class="fa-solid fa-users"></i> </li></a>
+                {% endif %}
+            </ul>
+        </div>
+    {% endblock %}

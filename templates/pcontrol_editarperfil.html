@@ -1,0 +1,27 @@
+{% extends "pcontrol.html" %}
+    {% block main %}
+        <div class="paneldecontrol">
+            <h1> <i class="fa-solid fa-pen-to-square"></i> EDITAR DATOS PERSONALES</h1>
+            <hr>
+            <div class="form_usuario">
+                <form action="/pcontrol_editarperfil.php" method="post">
+                    <label for="Usuario">Usuario:</label><br>
+                    <input type="text" name="nuevoUser" placeholder="Tu nuevo usuario." value="{{ usuario }}"/><br>
+                    
+                    <label for="Contraseña">Correo:</label><br>
+                    <input type="email" name="nuevoCorreo" placeholder="Tu nuevo correo." value="{{ correo }}"/><br><br>
+                    
+                    <label for="Contraseña">* Antigua contraseña:</label><br>
+                    <input type="password" name="antiguaContraseña" placeholder="Tu antigua contraseña." required/><br><br>
+                    
+                    <label for="Contraseña">Nueva contraseña:</label><br>
+                    <input type="password" name="nuevaContraseña" placeholder="Tu nueva contraseña."/><br><br>
+                    
+                    <label for="Contraseña">Repite la nueva contraseña:</label><br>
+                    <input type="password" name="repetirContraseña" placeholder="Tu nueva contraseña."/><br><br>
+                    
+                    <input type="submit" value="Actualizar datos" />
+                </form>
+            </div>
+        </div>
+    {% endblock %}

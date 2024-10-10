@@ -1,0 +1,35 @@
+{% extends "pcontrol.html" %}
+    {% block main %}
+        <div class =pcontrol_actividades>
+            <h1> <i class="fa-solid fa-mountain"></i> GESTIÓN DE ACTIVIDADES</h1>
+            <hr>
+            <div class="creat_actividad">
+                <a href="/pcontrol_añadirActividad.php"><h2>+ CREAR NUEVA ACTIVIDAD</h2></a>
+                <a href="/buscarActividad.php"><h2> <i class="fa-solid fa-magnifying-glass"></i> BUSCAR ACTIVIDADES</h2></a>
+            </div>
+            <hr>
+
+            <div class="actividades">
+                {% for actividad in actividades %} 
+                    <figure class="actividad">
+                        {% if actividad.publicado == 0 %}
+                            <a  href="actividad.php?actividad={{actividad.id}}"> <img class="sinpublicar" src="img/{{actividad.imagen_portada}}"> </a>
+                            <a class="titulo_act" href="actividad.php?actividad={{actividad.id}}"> {{ actividad.nombre }}  </a> 
+                        {% elseif actividad.publicado == 1 %}
+                            <a  href="actividad.php?actividad={{actividad.id}}"> <img src="img/{{actividad.imagen_portada}}"> </a>
+                            <a class="titulo_act" href="actividad.php?actividad={{actividad.id}}"> {{ actividad.nombre }} </a> 
+                        {% endif %}
+                        
+                        <a href="/pcontrol_editarActividad.php?actividad={{actividad.id}}"> <i class="fa-solid fa-pen-to-square"></i> EDITAR </a>
+                        <a href="/pcontrol_borrarActividad.php?actividad={{actividad.id}}"> <i class="fa-solid fa-trash"></i> BORRAR </a>
+                        {% if actividad.publicado == 0 %}
+                            <a href="/pcontrol_publicarActividad.php?actividad={{actividad.id}}"> <i class="fa-solid fa-eye"></i> PUBLICAR </a>
+                        {% else %}
+                            <a href="/pcontrol_archivarActividad.php?actividad={{actividad.id}}"> <i class="fa-solid fa-eye-slash"></i> </i> ARCHIVAR </a>
+                        {% endif %}
+                    </figure>
+                {% endfor %} 
+            </div>
+        </div>
+        
+    {% endblock %}
